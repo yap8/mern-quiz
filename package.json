@@ -1,0 +1,20 @@
+{
+  "name": "mern-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yap8/mern-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yap8/mern-quiz/issues"
+  },
+  "homepage": "https://github.com/yap8/mern-quiz#readme"
+}
