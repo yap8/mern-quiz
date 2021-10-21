@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "cd client && npm start"
+    "client": "cd client && npm start",
+    "server": "cd server && npm start"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/yap8/mern-quiz/issues"
   },
-  "homepage": "https://github.com/yap8/mern-quiz#readme"
+  "homepage": "https://github.com/yap8/mern-quiz#readme",
+  "dependencies": {}
 }
