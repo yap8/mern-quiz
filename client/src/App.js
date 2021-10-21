@@ -4,23 +4,21 @@ import {
   Route
 } from 'react-router-dom'
 import Constructor from './components/Constructor';
-import Game from './components/Game';
-import Header from './components/Header';
 import Home from './components/Home';
+import Quizzes from './components/Quizzes';
 
 const App = () => {
   return (
     <>
-      <Header />
       <Router>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="play">
-            <Game />
+          <Route path="/quizzes">
+            <Quizzes />
           </Route>
-          <Route path="create">
+          <Route path="/create">
             <Constructor />
           </Route>
         </Switch>
