@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import Constructor from './components/Constructor';
 import Home from './components/Home';
+import Quiz from './components/Quiz';
 import Quizzes from './components/Quizzes';
 
 const App = () => {
@@ -15,8 +16,11 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/quizzes">
+          <Route exact path="/quizzes">
             <Quizzes />
+          </Route>
+          <Route path="/quizzes/:id">
+            <Quiz />
           </Route>
           <Route path="/create">
             <Constructor />

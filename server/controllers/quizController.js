@@ -10,6 +10,18 @@ module.exports.quiz_get = async (req, res) => {
   }
 }
 
+module.exports.quiz_one_get = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const quiz = await Quiz.findById(id)
+
+    res.json(quiz)
+  } catch (err) {
+    res.json(err)
+  }
+}
+
 module.exports.quiz_post = async (req, res) => {
   try {
     const newQuiz = await Quiz.create(req.body)

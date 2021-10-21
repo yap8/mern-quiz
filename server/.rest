@@ -1,6 +1,9 @@
 GET http://localhost:5000/api/quizzes
 
 ###
+GET http://localhost:5000/api/quizzes/61715ed7868297511ff193ad
+
+###
 POST http://localhost:5000/api/quizzes
 content-type: application/json
 
