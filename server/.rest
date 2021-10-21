@@ -1,0 +1,33 @@
+GET http://localhost:5000/api/quizzes
+
+###
+POST http://localhost:5000/api/quizzes
+content-type: application/json
+
+{
+  "title": "quiz title",
+  "categories": ["sports"],
+  "difficulty": "easy",
+  "questions": [
+    {
+      "question": "Which of the following sports is not part of the triathlon?",
+      "correct": "Horse-Riding",
+      "answers": [
+        "Horse-Riding",
+        "Cycling",
+        "Swimming",
+        "Running"
+      ]
+    },
+        {
+      "question": "How many points did LeBron James score in his first NBA game?",
+      "correct": "25",
+      "answers": [
+        "19",
+        "69",
+        "41",
+        "25"
+      ]
+    }
+  ]
+}
