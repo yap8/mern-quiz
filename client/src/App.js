@@ -3,7 +3,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import Constructor from './components/Constructor';
+import Create from './components/Create';
 import Home from './components/Home';
 import Quiz from './components/Quiz';
 import Quizzes from './components/Quizzes';
@@ -19,11 +19,11 @@ const App = () => {
           <Route exact path="/quizzes">
             <Quizzes />
           </Route>
+          <Route path="/quizzes/create">
+            <Create />
+          </Route>
           <Route path="/quizzes/:id">
             <Quiz />
-          </Route>
-          <Route path="/create">
-            <Constructor />
           </Route>
         </Switch>
       </Router>

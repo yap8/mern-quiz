@@ -22,7 +22,7 @@ module.exports.quiz_one_get = async (req, res) => {
   }
 }
 
-module.exports.quiz_post = async (req, res) => {
+module.exports.quiz_create_post = async (req, res) => {
   try {
     const newQuiz = await Quiz.create(req.body)
 
