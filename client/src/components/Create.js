@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Create = () => {
   const [title, setTitle] = useState('')
@@ -72,58 +73,61 @@ const Create = () => {
   }
 
   return (
-    <form onSubmit={e => handleSubmit(e)}>
-      <label>
-        Title: 
-        <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Categories:
-        <input type="text" value={categories} onChange={e => setCategories(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Difficulty:
-        <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-          <option>easy</option>
-          <option>medium</option>
-          <option>hard</option>
-        </select>
-      </label>
-      <ul>
-        {questions.map((question, index) => (
-          <li key={index}>
-            <label>
-              Question {index + 1}:
-              <input type="text" value={question.question} onChange={editQuestion(index)} />
-            </label>
-            <div>
+    <>
+      <form onSubmit={e => handleSubmit(e)}>
+        <label>
+          Title: 
+          <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Categories:
+          <input type="text" value={categories} onChange={e => setCategories(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Difficulty:
+          <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+            <option>easy</option>
+            <option>medium</option>
+            <option>hard</option>
+          </select>
+        </label>
+        <ul>
+          {questions.map((question, index) => (
+            <li key={index}>
               <label>
-                Correct answer:
-                <input type="text" value={questions.correct} onChange={editCorrectAnswer(index)} />
+                Question {index + 1}:
+                <input type="text" value={question.question} onChange={editQuestion(index)} />
               </label>
-            </div>
-            <div>
-              <label>
-                Other answers:
-                <ul>
-                  <li><input type="text" value={question.otherAnswers[0]} onChange={editAnswer(index, 0)} /></li>
-                  <li><input type="text" value={question.otherAnswers[1]} onChange={editAnswer(index, 1)} /></li>
-                  <li><input type="text" value={question.otherAnswers[2]} onChange={editAnswer(index, 2)} /></li>
-                </ul>
-              </label>
-            </div>
-            {(!!index || questions.length > 1) && (
-              <button onClick={() => deleteQuestion(index)}>Delete question</button>
-            )}
-          </li>
-        ))}
-      </ul>
-      <button onClick={addQuestion}>Add question</button>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+              <div>
+                <label>
+                  Correct answer:
+                  <input type="text" value={questions.correct} onChange={editCorrectAnswer(index)} />
+                </label>
+              </div>
+              <div>
+                <label>
+                  Other answers:
+                  <ul>
+                    <li><input type="text" value={question.otherAnswers[0]} onChange={editAnswer(index, 0)} /></li>
+                    <li><input type="text" value={question.otherAnswers[1]} onChange={editAnswer(index, 1)} /></li>
+                    <li><input type="text" value={question.otherAnswers[2]} onChange={editAnswer(index, 2)} /></li>
+                  </ul>
+                </label>
+              </div>
+              {(!!index || questions.length > 1) && (
+                <button onClick={() => deleteQuestion(index)}>Delete question</button>
+              )}
+            </li>
+          ))}
+        </ul>
+        <button onClick={addQuestion}>Add question</button>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+      <Link to="/">Go back</Link>
+    </>
   )
 }
 
