@@ -3,10 +3,10 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import Create from './components/Create';
-import Home from './components/Home';
-import Quiz from './components/Quiz';
-import Quizzes from './components/Quizzes';
+import Create from './pages/Create';
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
+import Quizzes from './pages/Quizzes';
 
 const App = () => {
   return (

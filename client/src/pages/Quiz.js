@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
-import Question from "./Question"
+import Question from "../components/Question"
 
 const Quiz = () => {
   const { id } = useParams()
