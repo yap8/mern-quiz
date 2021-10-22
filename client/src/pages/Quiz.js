@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Question from "../components/Question"
+import { Container, Typography } from "@mui/material"
 
 const Quiz = () => {
   const { id } = useParams()
@@ -31,8 +32,8 @@ const Quiz = () => {
   }
 
   return (
-    <div>
-      <h1>{quiz.title}</h1>
+    <Container>
+      <Typography variant="h4" component="h1" color="textSecondary" gutterBottom align="center">{quiz.title}</Typography>
       {Object.keys(quiz).length && current !== quiz.questions.length ? (
         <Question
           question={quiz.questions[current]}
@@ -40,9 +41,9 @@ const Quiz = () => {
           checkAnswer={checkAnswer}
         />
       ) : (
-        <div>Mistakes: {mistakes}</div>
+        <Typography variant="h2" component="h4">Mistakes: {mistakes}</Typography>
       )}
-    </div>
+    </Container>
   )
 }
 

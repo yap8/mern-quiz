@@ -1,3 +1,5 @@
+import { Button, ButtonGroup, Container, Grid, Typography } from "@mui/material"
+
 const Question = ({ question, nextQuestion, checkAnswer }) => {
   const handleClick = (value) => {
     checkAnswer(value)
@@ -5,16 +7,14 @@ const Question = ({ question, nextQuestion, checkAnswer }) => {
   }
 
   return (
-    <div>
-      <h1>{question.question}</h1>
-      <ul>
+    <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <Typography variant="h3" align="center">{question.question}</Typography>
+      <ButtonGroup>
         {question.answers.map(answer => (
-          <li key={answer}>
-            <button onClick={(e) => handleClick(e.target.innerHTML)}>{answer}</button>
-          </li>
+          <Button variant="contained" onClick={(e) => handleClick(e.target.innerHTML)}>{answer}</Button>
         ))}
-      </ul>
-    </div>
+      </ButtonGroup>
+    </Container>
   )
 }
 
