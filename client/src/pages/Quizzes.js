@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import Card from '@mui/material/Card'
+import { CardActionArea, CardContent, Grid } from '@mui/material'
 
 const Quizzes = () => {
   const [quizzes, setQuizzes] = useState([])
@@ -20,28 +24,36 @@ const Quizzes = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Quizzes</h1>
+    <Container>
+      <Typography
+        variant="h2"
+        component="h1"
+        align="center"
+        sx={{ mb: '32px' }}
+      >
+        Quizzes
+      </Typography>
       {quizzes.length ? (
-        <ul>
+        <Grid container>
           {quizzes.map(quiz => (
-            <li>
-              <Link to={`/quizzes/${quiz._id}`}>
-                <h2>{quiz.title}</h2>
-                <div>Categories:</div>
-                <ul>
-                  {quiz.categories.map(category => <li>{category}</li>)}
-                </ul>
-                <div>Difficulty: {quiz.difficulty}</div>
-                <div>Number of questions: {quiz.questions.length}</div>
-              </Link>
-            </li>
+            <Grid xs="4" item key={quiz._id}>
+              <Card>
+                <CardActionArea component={Link} to={`/quizzes/${quiz._id}`}>
+                  <CardContent>
+                    <Typography variant="h3" color="primary" gutterBottom>{quiz.title}</Typography>
+                    <Typography>Categories: {quiz.categories}</Typography>
+                    <Typography>Difficulty: {quiz.difficulty}</Typography>
+                    <Typography>Number of questions: {quiz.questions.length}</Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
           ))}
-        </ul>
+        </Grid>
       ) : (
         <h2>no quizzes fetched :(</h2>
       )}
-    </div>
+    </Container>
   )
 }
 
